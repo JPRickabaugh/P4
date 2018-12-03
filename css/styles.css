@@ -1,0 +1,29 @@
+#griddiv{
+  display: grid;
+  width: 100%;
+  height: 98vh;
+  padding: 0px;
+  margin: 0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 15% 85%;
+  grid-template-areas:
+    "top top top"
+    "lst cnt cnt";
+}
+
+#topdiv {
+  grid-area: top;
+  border: 1px solid black;
+  border-bottom: 0px;
+}
+
+#listdiv {
+  grid-area: lst;
+  border: 1px solid black;
+  border-right: 1px;
+}
+
+#contentdiv {
+  grid-area: cnt;
+  border: 1px solid black;
+}
