@@ -4,26 +4,69 @@
   height: 98vh;
   padding: 0px;
   margin: 0px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 15% 85%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 10% 60% 30%;
   grid-template-areas:
-    "top top top"
-    "lst cnt cnt";
+    "log log log log log log log log"
+    "jco ome bas coz lut ari jid ear"
+    "inf inf inf inf inf inf inf inf";
 }
 
-#topdiv {
-  grid-area: top;
+#logodiv {
+  grid-area: log;
   border: 1px solid black;
-  border-bottom: 0px;
+  background-color: black;
 }
 
-#listdiv {
-  grid-area: lst;
+#mainlogo {
+  width: 10%;
+  height: auto;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-top: 10px;
+}
+
+#ad1 {
+  grid-area: jco;
   border: 1px solid black;
-  border-right: 1px;
 }
 
-#contentdiv {
-  grid-area: cnt;
+#ad2 {
+  grid-area: ome;
+  border: 1px solid black;
+}
+
+#ad3 {
+  grid-area: bas;
+  border: 1px solid black;
+}
+
+#ad4 {
+  grid-area: coz;
+  border: 1px solid black;
+}
+
+#ad5 {
+  grid-area: lut;
+  border: 1px solid black;
+}
+
+#ad6 {
+  grid-area: ari;
+  border: 1px solid black;
+}
+
+#ad7 {
+  grid-area: jid;
+  border: 1px solid black;
+}
+
+#ad8 {
+  grid-area: ear;
+  border: 1px solid black;
+}
+
+#infodiv {
+  grid-area: inf;
   border: 1px solid black;
 }
