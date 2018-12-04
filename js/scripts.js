@@ -1,7 +1,7 @@
 $(document).ready(function(){
   console.log ('Scripts Loaded');
   var apiParams0 = {action: 'query', prop: 'extracts', format: 'json', titles: 'Dreamville_Records', exintro: 1}; //pageid = 41775413
-  var apiParams1 = {action: 'query', prop: 'extracts', format: 'json', titles: 'J._Cole', exintro: 1}; //pageid = 23306612
+  var apiParams1 = {action: 'query', prop: 'extracts', exsentences: '10', format: 'json', titles: 'J._Cole', exintro: 1}; //pageid = 23306612 - exsentences limits the amount of sentences extracted, his full default extraction is too large.
   var apiParams2 = {action: 'query', prop: 'extracts', format: 'json', titles: 'Omen_(musician)', exintro: 1}; //pageid = 43576965
   var apiParams3 = {action: 'query', prop: 'extracts', format: 'json', titles: 'Bas_(rapper)', exintro: 1}; //pageid = 42614201
   var apiParams4 = {action: 'query', prop: 'extracts', format: 'json', titles: 'Cozz', exintro: 1}; //pageid = 43576183
@@ -146,7 +146,7 @@ $(document).ready(function(){
   });
   $('#ai8').click(function(){
     $('#defaultinfo, #info1, #info2, #info3, #info4, #info5, #info6, #info7').css("display", "none");
-    $("#info8").empty();
+    $("#info8 ").empty();
     $('#info8').css("display", "block");
     $.ajax({
       "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams8),
