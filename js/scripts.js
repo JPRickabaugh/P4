@@ -10,6 +10,7 @@ $(document).ready(function(){
   var apiParams7 = {action: 'query', prop: 'extracts', format: 'json', titles: 'J.I.D', exintro: 1}; //pageid = 53256071
   var apiParams8 = {action: 'query', prop: 'extracts', format: 'json', titles: 'EarthGang', exintro: 1}; //pageid = 44017272
   //made separate api parameter variables for each article
+
   $.ajax({ //as of now, it looks like a may have to do a separate ajax call for each description
     "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams0),
     "dataType": "jsonp",
@@ -23,6 +24,27 @@ $(document).ready(function(){
       console.log('error');
     }
   });
+
+  $("#ai1").mouseover(function(){
+    $("#backgrounddiv").css("background-image", "url('img/KOD.jpg')");
+    $("#backgrounddiv").css("background-size", "100%");
+    $("#ah1").css("color", "black");
+  });
+  $("#ai1").mouseout(function(){
+    $("#backgrounddiv").css("background-image", "");
+    $("#ah1").css("color", "");
+  });
+
+  $("#ai2").mouseover(function(){
+    $("#backgrounddiv").css("background-image", "url('img/elephanteyes.jpg')");
+    $("#backgrounddiv").css("background-size", "100%");
+    $("#ah2").css("color", "black");
+  });
+  $("#ai2").mouseout(function(){
+    $("#backgrounddiv").css("background-image", "");
+    $("#ah2").css("color", "");
+  });
+
   //use $(whatever).onhover or whatever for following bios
 /*    $.ajax({
       type:'GET',

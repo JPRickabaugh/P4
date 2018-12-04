@@ -16,18 +16,23 @@ body {
     "inf inf inf inf inf inf inf inf";
 }
 
+#maindiv {
+  width: 100vw;
+}
+
 #logodiv {
   grid-area: log;
   border: 1px solid black;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #mainlogo {
   width: 10%;
   height: auto;
-  margin-left: 45%;
-  margin-right: 45%;
-  margin-top: 10px;
 }
 
 .artistdiv {
@@ -35,22 +40,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 }
 
 #ad1 {
   grid-area: jco;
-}
-
-.artistimage{
-  width: 100%;
-  height: auto;
-  filter: grayscale(100%);
-  transition: 1s;
-}
-
-.artistimage:hover{
-  filter: grayscale(0%);
-  transition: 1s;
 }
 
 #ad2 {
@@ -63,12 +57,6 @@ body {
 
 #ad4 {
   grid-area: coz;
-}
-
-#aid4 {
-  width: 100%;
-  height: auto;
-  margin: 0px;
 }
 
 #ad5 {
@@ -87,11 +75,36 @@ body {
   grid-area: ear;
 }
 
+.artistheader{
+  color: white;
+}
+
+.artistimage{
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: 1s;
+}
+
+.artistimage:hover{
+  filter: grayscale(0%);
+  transition: 1s;
+}
+
+
+#backgrounddiv {
+  background-color: black;
+  z-index: -1;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
 #infodiv {
   grid-area: inf;
   border: 1px solid black;
+  background-color: white;
 }
-
 
 @media screen and (max-width:1024px) {
   #griddiv{
