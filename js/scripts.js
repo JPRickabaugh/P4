@@ -9,19 +9,21 @@ $(document).ready(function(){
   var apiParams6 = {action: 'query', prop: 'extracts', format: 'json', titles: 'Ari_Lennox', exintro: 1}; //pageid = 48760011
   var apiParams7 = {action: 'query', prop: 'extracts', format: 'json', titles: 'J.I.D', exintro: 1}; //pageid = 53256071
   var apiParams8 = {action: 'query', prop: 'extracts', format: 'json', titles: 'EarthGang', exintro: 1}; //pageid = 44017272
-
+  //made separate api parameter variables for each article
   $.ajax({ //as of now, it looks like a may have to do a separate ajax call for each description
     "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams0),
     "dataType": "jsonp",
     //data: apiParams,
     success: function(response){
-  //      console.log(response.query.pages[41775413].extract);
-  //      var dreamvilleInfo = response.query.pages[41775413].extract;
-        console.log(response.query.pages)
-  //      $('#infodiv').append(dreamvilleInfo);
-
+      console.log(response.query.pages[41775413].extract);
+      var dreamvilleInfo = response.query.pages[41775413].extract;
+      $('#infodiv').append(dreamvilleInfo);
+    },
+    error: function(msg){
+      console.log('error');
     }
   });
+  //use $(whatever).onhover or whatever for following bios
 /*    $.ajax({
       type:'GET',
       dataType:'jsonp',
