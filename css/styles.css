@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600');
+
 body {
   margin: 0px;
 }
@@ -77,6 +79,8 @@ body {
 
 .artistheader{
   color: white;
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 300;
 }
 
 .artistimage{
@@ -103,7 +107,21 @@ body {
 #infodiv {
   grid-area: inf;
   border: 1px solid black;
-  background-color: white;
+  background-color: black;
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#defaultinfo{
+  margin-top: 40vh;
+}
+
+.infotext{
+  color: white;
 }
 
 @media screen and (max-width:1024px) {
