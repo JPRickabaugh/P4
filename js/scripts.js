@@ -11,6 +11,7 @@ $(document).ready(function(){
   var apiParams8 = {action: 'query', prop: 'extracts', format: 'json', titles: 'EarthGang', exintro: 1}; //pageid = 44017272
   //made separate api parameter variables for each article
 
+
   $.ajax({ //as of now, it looks like a may have to do a separate ajax call for each description
     "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams0),
     "dataType": "jsonp",
@@ -24,6 +25,7 @@ $(document).ready(function(){
       console.log('error');
     }
   });
+
 
   $('#ai1').click(function(){
     $('#defaultinfo, #info2, #info3, #info4, #info5, #info6, #info7, #info8').css("display", "none");
