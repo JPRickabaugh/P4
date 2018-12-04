@@ -96,7 +96,7 @@ body {
     padding: 0px;
     margin: 0px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10% 15% 15% 15% 15% 20%;
+    grid-template-rows: 10% 15% 15% 15% 15% 30%;
     grid-template-areas:
       "log log"
       "jco ome"
@@ -104,5 +104,21 @@ body {
       "lut arl"
       "jid ear"
       "inf inf";
+  }
+  #mainlogo {
+    height: 2vh;
+    width: auto;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 3vh;
+  }
+  .artistimage{
+    width: 40%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: 1s;
+  }
+  .artistheader {
+    margin: 0px;
   }
 }
