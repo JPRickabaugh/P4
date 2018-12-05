@@ -23,6 +23,7 @@
     success: function(response){
       console.log(response.query.pages[41775413].extract); //on success, log the 'extract' of the wiki page - in this case, it's the intro text
       var dreamvilleInfo = response.query.pages[41775413].extract; //puts the extract in a variable
+      $('#defaultinfo').append('<h2 id="instructionheader">CLICK ON AN ARTIST TO SEE MORE</h2>')
       $('#defaultinfo').append(dreamvilleInfo); //puts extract in info div
     },
     error: function(msg){ //else, error message
