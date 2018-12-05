@@ -5,25 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <title>Project 4</title>
+    <title>Interactive Dreamville Roster</title>
   </head>
   <body>
 
     <div id="myModal" class="modal"><!-- Main Modal for artist info-->
       <div class="modal-box" id="modalbox"><!-- Modal content -->
-        <span class="close">&times;</span>
-        <div id="artistcontent">
-          <div id="modaltext">
-            <h1 id="modalheader"></h1>
-            <p id="modalbodytext"></p>
+        <span class="close">&times;</span> <!-- close button -->
+        <div id="artistcontent"> <!-- div that holds the content which will be put in with js -->
+          <div id="modaltext"> <!-- text section -->
+            <h1 id="modalheader"></h1> <!-- artist name -->
+            <p id="modalbodytext"></p> <!-- body text -->
           </div>
-          <div id="modalvid">
-            <div id="ytplayer"></div>
+          <div id="modalvid"> <!-- video section -->
+            <div id="ytplayer"></div> <!--youtube player div-->
           </div>
-          <div id="modalalbums">
-            <h2 id="albumheader">Latest Releases</h2>
-            <div id="albumholder"></div>
-            <div id="albumtitles"></div>
+          <div id="modalalbums"> <!-- albums section -->
+            <h2 id="albumheader">Latest Releases</h2> <!-- header -->
+            <div id="albumholder"></div> <!-- albums -->
+            <div id="albumtitles"></div> <!-- album titles -->
           </div>
         </div>
       </div>
@@ -38,17 +38,17 @@
     <div id="mobilebackground"> <!--mobile background; video doesn't autoplay on mobile so i used an image -->
     </div>
 
-    <button id="sourceBtn">?</button>
+    <button id="sourceBtn">?</button> <!-- source button, click to bring up sources window -->
 
-    <div id="griddiv">
-      <div id="logodiv">
-        <img id="mainlogo" src="img/dreamvillelogo.png" />
+    <div id="griddiv"> <!-- main grid -->
+      <div id="logodiv"> <!-- logo/navbar section -->
+        <img id="mainlogo" src="img/dreamvillelogo.png" /> <!-- logo -->
       </div>
-      <div id="ad1" class="artistdiv">
-        <h2 id="ah1" class="artistheader">J. COLE</h2>
-        <img href="#infodiv" id="ai1" class="artistimage" src="img/JCOLE.png"/>
+      <div id="ad1" class="artistdiv"> <!-- artist container div -->
+        <h2 id="ah1" class="artistheader">J. COLE</h2> <!--artist title -->
+        <img href="#infodiv" id="ai1" class="artistimage" src="img/JCOLE.png"/> <!--artist image -->
       </div>
-      <div id="ad2" class="artistdiv">
+      <div id="ad2" class="artistdiv"> <!-- same as last artist div, all following divs are essentailly the same with different content -->
         <h2 id="ah2" class="artistheader">OMEN</h2>
         <img href="#infodiv" id="ai2" class="artistimage" src="img/OMEN.png"/>
       </div>
@@ -77,20 +77,20 @@
         <img href="#infodiv" id="ai8" class="artistimage" src="img/EG.png"/>
       </div>
 
-      <div id="infodiv">
+      <div id="infodiv"> <!-- info div -->
         <button id="myBtn">MORE</button> <!-- Trigger/Open The Modal -->
-        <p class="infotext" id="defaultinfo"></p>
-        <p class="infotext" id="info1"></p>
-        <p class="infotext" id="info2"></p>
-        <p class="infotext" id="info3"></p>
+        <p class="infotext" id="defaultinfo"></p> <!-- default info box -->
+        <p class="infotext" id="info1"></p> <!-- info box for artist 1 -->
+        <p class="infotext" id="info2"></p> <!-- info box for artist [i] -->
+        <p class="infotext" id="info3"></p> <!-- so on so forth -->
         <p class="infotext" id="info4"></p>
         <p class="infotext" id="info5"></p>
         <p class="infotext" id="info6"></p>
         <p class="infotext" id="info7"></p>
         <p class="infotext" id="info8"></p>
-        <div id="sources">
-          <ul id="sourcelist">
-            <li><a href=https://www.last.fm/api>Last.fm API</a></li>
+        <div id="sources"> <!-- source div -->
+          <ul id="sourcelist"> <!--sources list-->
+            <li><a href=https://www.last.fm/api>Last.fm API</a></li> <!-- source listing -->
             <li><a href=https://www.mediawiki.org/wiki/API:Main_page>Wikipedia API</a></li>
             <li><a href=https://developers.google.com/youtube/iframe_api_reference>Youtube/Iframe API</a></li>
             <li>Wikipedia (Album Art)</li>
@@ -99,13 +99,13 @@
             <li>Allmusic (certain artist bios)</li>
             <li><a href=https://github.com/flesler/jquery.scrollTo>jquery.scrollTo plugin by Flesler</a></li>
           </ul>
-          <button id="closeBtn">close</button>
+          <button id="closeBtn">close</button> <!-- close button -->
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> <!--jquery -->
     <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script> <!-- scrollto plugin-->
-    <script src="js/config.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/config.js"></script> <!-- config, which didn't really work unfortunately -->
+    <script src="js/scripts.js"></script>  
   </body>
 </html>
