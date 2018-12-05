@@ -191,7 +191,7 @@ body {
 
 /* The Close Button */
 .close {
-    color: #aaaaaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -200,7 +200,7 @@ body {
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
@@ -221,6 +221,35 @@ body {
   grid-area: txt;
 }
 
+#modalbodytext {
+  font-family: 'Oswald', 'sans-serif';
+  overflow: auto;
+  height: 85%;
+  width: 90%;
+  margin-left: 5%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 #modalheader {
   font-family: 'Oswald', 'sans-serif';
   font-weight: 600;
@@ -238,6 +267,11 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 5px 5px 0px 0px;
+}
+
+#ytplayer {
+  width: 640px;
+  height: 360px;
 }
 
 #modalbillboard {
@@ -304,5 +338,9 @@ body {
     padding-bottom: 3px;
     font-size: 1.25em;
     border-radius: 2px;
+  }
+  #ytplayer {
+    width: 320px;
+    height: 180px;
   }
 }
