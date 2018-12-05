@@ -234,7 +234,7 @@ body { /*ensures body content fits in viewport*/
   overflow: auto;
   height: 85%;
   width: 90%;
-  margin-left: 5%;
+  margin-left: 3%;
 }
 
 /* scrollbar width */
