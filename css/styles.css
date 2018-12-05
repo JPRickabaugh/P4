@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600');
 
-
 * { box-sizing: border-box; }
 .video-background {
   background: #000;
@@ -24,16 +23,10 @@
 @media (max-aspect-ratio: 16/9) {
   .video-foreground { width: 300%; left: -100%; }
 }
-@media all and (max-width: 600px) {
-.vid-info { width: 50%; padding: .5rem; }
-.vid-info h1 { margin-bottom: .2rem; }
-}
-@media all and (max-width: 500px) {
-.vid-info .acronym { display: none; }
-}
 
 body {
   margin: 0px;
+  width: 100vw;
 }
 
 #griddiv{
@@ -113,28 +106,21 @@ body {
   color: white;
   font-family: 'Oswald', 'sans-serif';
   font-weight: 300;
+  letter-spacing: 2px;
 }
 
 .artistimage{
   width: 100%;
   height: auto;
   filter: grayscale(100%);
-  transition: 1s;
+  transition: .75s;
 }
 
 .artistimage:hover{
   filter: grayscale(0%);
-  transition: 1s;
+  transition: .75s;
+  cursor: pointer;
 }
-
-/*
-#player {
-  background-color: black;
-  z-index: -1;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-} */
 
 #infodiv {
   grid-area: inf;
@@ -148,6 +134,27 @@ body {
   align-items: center;
 }
 
+#myBtn {
+  position:fixed;
+  top: 73%;
+  right: 5%;
+  z-index: -1;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 400;
+  letter-spacing: 2px;
+  padding-bottom: 3px;
+  font-size: 1.25em;
+  border-radius: 2px;
+}
+
+#myBtn:hover {
+  background-color: white;
+  color: black;
+}
+
 #defaultinfo{
   margin-top: 40vh;
 }
@@ -156,15 +163,98 @@ body {
   color: white;
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 5vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal box */
+.modal-box {
+    background-color: white;
+    margin: auto;
+    padding: 0px;
+    border: 3px solid white;
+    border-radius: 3px;
+    width: 90%;
+    height: 90%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 1%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#artistcontent {
+  height: 95%;
+  width: 100%;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 65% 35%;
+  grid-template-areas:
+  "txt vid vid"
+  "txt blb blb";
+}
+
+#modaltext {
+  grid-area: txt;
+}
+
+#modalheader {
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-left: 3%;
+}
+
+#modalvid {
+  grid-area: vid;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 5px 0px 0px;
+}
+
+#modalbillboard {
+  grid-area: blb;
+  background-color: black;
+  border-radius: 0px 0px 5px 5px;
+}
+
 @media screen and (max-width:1024px) {
   #griddiv{
     display: grid;
     width: 100%;
-    height: 200vh;
+    height: 100%;
     padding: 0px;
     margin: 0px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5% 15% 15% 15% 15% 32%;
+    grid-template-rows: 5% 12% 12% 12% 12% 47%;
     grid-template-areas:
       "log log"
       "jco ome"
@@ -172,6 +262,9 @@ body {
       "lut arl"
       "jid ear"
       "inf inf";
+  }
+  .video-background {
+    display: none
   }
   #logodiv {
     grid-area: log;
@@ -190,9 +283,26 @@ body {
     width: 40%;
     height: auto;
     filter: grayscale(100%);
-    transition: 1s;
+    transition: .75s;
   }
   .artistheader {
     margin: 0px;
+    color: black;
+  }
+  #myBtn {
+    position:absolute;
+    margin-top: 120%;
+    right: 40%;
+    width: 20%;
+    z-index: -1;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    font-family: 'Oswald', 'sans-serif';
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding-bottom: 3px;
+    font-size: 1.25em;
+    border-radius: 2px;
   }
 }

@@ -8,6 +8,25 @@
     <title>Project 4</title>
   </head>
   <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-box" id="modalbox">
+        <span class="close">&times;</span>
+        <div id="artistcontent">
+          <div id="modaltext">
+            <h1 id="modalheader"></h1>
+            <p id="modalbodytext"></p>
+          </div>
+          <div id="modalvid">
+            <div id="ytplayer"></div>
+          </div>
+          <div id="modalbillboard">
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="video-background">
       <div class="video-foreground">
         <iframe src="https://www.youtube.com/embed/ZiADuDjueJc?controls=0&showinfo=0&rel=0&autoplay=1&modestbranding=1&start=1&loop=1&playlist=ZiADuDjueJc&mute=1" frameborder="0" allowfullscreen></iframe>
@@ -18,39 +37,40 @@
         <img id="mainlogo" src="img/dreamvillelogo.png" />
       </div>
       <div id="ad1" class="artistdiv">
-        <h2 id="ah1" class="artistheader">J. Cole</h2>
+        <h2 id="ah1" class="artistheader">J. COLE</h2>
         <img id="ai1" class="artistimage" src="img/JCOLE.png"/>
       </div>
       <div id="ad2" class="artistdiv">
-        <h2 id="ah2" class="artistheader">Omen</h2>
+        <h2 id="ah2" class="artistheader">OMEN</h2>
         <img id="ai2" class="artistimage" src="img/OMEN.png"/>
       </div>
       <div id="ad3" class="artistdiv">
-        <h2 id="ah3" class="artistheader">Bas</h2>
+        <h2 id="ah3" class="artistheader">BAS</h2>
         <img id="ai3" class="artistimage" src="img/BAS.png"/>
       </div>
       <div id="ad4" class="artistdiv">
-        <h2 id="ah4" class="artistheader">Cozz</h2>
+        <h2 id="ah4" class="artistheader">COZZ</h2>
         <img id="ai4" class="artistimage" src="img/COZZ.png"/>
       </div>
       <div id="ad5" class="artistdiv">
-        <h2 id="ah5" class="artistheader">Lute</h2>
+        <h2 id="ah5" class="artistheader">LUTE</h2>
         <img id="ai5" class="artistimage" src="img/LUTE.png"/>
       </div>
       <div id="adiv6" class="artistdiv"> <!-- changed the ID on this because #ad6 wouldn't work for some reason -->
-        <h2 id="ah6" class="artistheader">Ari Lennox</h2>
+        <h2 id="ah6" class="artistheader">ARI LENNOX</h2>
         <img id="ai6" class="artistimage" src="img/AL.png"/>
       </div>
       <div id="ad7" class="artistdiv">
-        <h2 id="ah7" class="artistheader">J.I.D.</h2>
+        <h2 id="ah7" class="artistheader">J.I.D</h2>
         <img id="ai7" class="artistimage" src="img/jid.png"/>
       </div>
       <div id="ad8" class="artistdiv">
-        <h2 id="ah8" class="artistheader">Earthgang</h2>
+        <h2 id="ah8" class="artistheader">EARTHGANG</h2>
         <img id="ai8" class="artistimage" src="img/EG.png"/>
       </div>
 
       <div id="infodiv">
+        <button id="myBtn">MORE</button> <!-- Trigger/Open The Modal -->
         <p class="infotext" id="defaultinfo">
 
         </p>
