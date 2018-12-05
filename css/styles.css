@@ -24,6 +24,10 @@
   .video-foreground { width: 300%; left: -100%; }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0px;
   width: 100vw;
@@ -388,7 +392,7 @@ body {
     padding: 0px;
     margin: 0px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5% 12% 12% 12% 12% 47%;
+    grid-template-rows: 6% 12% 12% 12% 12% 46%;
     grid-template-areas:
       "log log"
       "jco ome"
@@ -439,8 +443,8 @@ body {
     color: white;
   }
   #myBtn {
-    position:absolute;
-    margin-top: 120%;
+    position:fixed;
+    top: 94%;
     right: 40%;
     width: 20%;
     z-index: -1;

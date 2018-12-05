@@ -12,6 +12,11 @@
   //made separate api parameter variables for each article
   var myKey = config.MY_KEY; //For some reason, the key wouldn't work when applied like usual
 
+  $('.artistimage').click(function() {
+     //optionally remove the 500 (which is time in milliseconds) of the
+     //scrolling animation to remove the animation and make it instant
+     $.scrollTo($('#infodiv'), 100);
+  });
 
   $.ajax({ //as of now, it looks like a may have to do a separate ajax call for each description
     "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams0),
@@ -85,7 +90,7 @@
         console.log('error');
       }
     });
-    $('#albumholder').append('<img class="albums" src="img/KOD.jpg"/><img class="albums" src="img/4youreyezonly.jpg"/><img class="albums" src="img/2014foresthillsdrive.jpg"/>');
+    $('#albumholder').append('<img class="albums" src="img/KOD.jpg"/><img class="albums" src="img/4youreyezonly.jpg"/><img class="albums" src="img/2014ForestHillsDrive.jpg"/>');
     $('#albumtitles').append('<span class="albumtitle">KOD</span><span class="albumtitle">4 Your Eyez Only</span><span class="albumtitle">2014 Forest Hills Drive</span>');
     player = new YT.Player('ytplayer', {
       height: 'auto',
