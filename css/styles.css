@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600');
 
-* { box-sizing: border-box; }
-.video-background {
+* { box-sizing: border-box; } /*styling for modal, ensures proper size*/
+.video-background { /*sets background for video background, behind all other content and fixed to the default position (in this case, the full screen)*/
   background: #000;
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
   z-index: -99;
 }
-.video-foreground,
-.video-background iframe {
+.video-foreground, .video-background iframe { /*the foreground of the video backgroud, where the video itself goes.*/
   position: absolute;
   top: 0;
   left: 0;
@@ -17,23 +16,12 @@
   pointer-events: none;
 }
 
-@media (min-aspect-ratio: 16/9) {
-  .video-foreground { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-foreground { width: 300%; left: -100%; }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+body { /*ensures body content fits in viewport*/
   margin: 0px;
   width: 100vw;
 }
 
-#griddiv{
+#griddiv{ /* main grid div */
   display: grid;
   width: 100%;
   height: 100vh;
@@ -47,11 +35,7 @@ body {
     "inf inf inf inf inf inf inf inf";
 }
 
-#maindiv {
-  width: 100vw;
-}
-
-#logodiv {
+#logodiv { /* color styling for logo div, makes it flex container for centering logo*/
   grid-area: log;
   border: 1px solid black;
   background-color: black;
@@ -61,13 +45,12 @@ body {
   align-items: center;
 }
 
-#mainlogo {
-  margin-left: 0%;
+#mainlogo { /*size of logo*/
   width: 10%;
   height: auto;
 }
 
-#sourceBtn{
+#sourceBtn{ /*styling for source button's position, color, font, etc*/
   position: absolute;
   right: 5%;
   top: 3%;
@@ -83,13 +66,13 @@ body {
   transition: .25s;
 }
 
-#sourceBtn:hover {
+#sourceBtn:hover { /*on hover, change color styling of button */
   background-color: white;
   color: black;
   transition: .25s;
 }
 
-.artistdiv {
+.artistdiv { /*general styling for artist divs, flex keeps alignment nice and neat */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,27 +112,27 @@ body {
   grid-area: ear;
 }
 
-.artistheader{
+.artistheader{ /* styling of artist headers */
   color: white;
   font-family: 'Oswald', 'sans-serif';
   font-weight: 300;
   letter-spacing: 2px;
 }
 
-.artistimage{
+.artistimage{ /*styling for artist image */
   width: 100%;
   height: auto;
   filter: grayscale(100%);
   transition: .75s;
 }
 
-.artistimage:hover{
+.artistimage:hover{ /*on hover, go from grayscale to color, make cursor pointer to indicate clickability */
   filter: grayscale(0%);
   transition: .75s;
   cursor: pointer;
 }
 
-#infodiv {
+#infodiv { /*styling for info div and the text within*/
   grid-area: inf;
   border: 1px solid black;
   background-color: black;
@@ -161,7 +144,7 @@ body {
   align-items: center;
 }
 
-#myBtn {
+#myBtn { /*styling for modal button*/
   position:fixed;
   top: 73%;
   right: 5%;
@@ -178,22 +161,21 @@ body {
   transition: .25s;
 }
 
-#myBtn:hover {
+#myBtn:hover { /*on hover, button changes colors */
   background-color: white;
   color: black;
   transition: .25s;
 }
 
-#defaultinfo{
+#defaultinfo{ /*for some reason the default info was higher up than it should've been. this pushes it back down*/
   margin-top: 40vh;
 }
 
-.infotext{
+.infotext{ /*info text styling*/
   color: white;
 }
 
-/* The Modal (background) */
-.modal {
+.modal { /* The Modal (background) */
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -207,8 +189,7 @@ body {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal box */
-.modal-box {
+.modal-box { /* Modal box default styling*/
     background-color: white;
     margin: auto;
     padding: 0px;
@@ -218,8 +199,7 @@ body {
     height: 90%;
 }
 
-/* The Close Button */
-.close {
+.close { /* The Close Button */
     color: black;
     float: right;
     font-size: 28px;
@@ -227,14 +207,13 @@ body {
     margin-right: 1%;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus { /*change styling on hover/focus */
     color: white;
     text-decoration: none;
     cursor: pointer;
 }
 
-#artistcontent {
+#artistcontent { /*grid for modal window*/
   height: 95%;
   width: 100%;
   margin: 0px;
@@ -250,7 +229,7 @@ body {
   grid-area: txt;
 }
 
-#modalbodytext {
+#modalbodytext { /* styling for modal body text */
   font-family: 'Oswald', 'sans-serif';
   overflow: auto;
   height: 85%;
@@ -258,28 +237,28 @@ body {
   margin-left: 5%;
 }
 
-/* width */
+/* scrollbar width */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
-/* Track */
+/* scrollbar track */
 ::-webkit-scrollbar-track {
     background: none;
 }
 
-/* Handle */
+/* scrollbar handle */
 ::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 3px;
 }
 
-/* Handle on hover */
+/* scrollbar andle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #0d0d0d;
 }
 
-#modalheader {
+#modalheader { /*modal header styling*/
   font-family: 'Oswald', 'sans-serif';
   font-weight: 600;
   letter-spacing: 2px;
@@ -288,7 +267,7 @@ body {
   margin-left: 3%;
 }
 
-#modalvid {
+#modalvid { /*modal video styling*/
   grid-area: vid;
   background-color: black;
   display: flex;
@@ -299,18 +278,18 @@ body {
   border-bottom: 1px solid black;
 }
 
-#ytplayer {
+#ytplayer { /*dimensions of youtube player*/
   width: 640px;
   height: 360px;
 }
 
-#modalalbums {
+#modalalbums { /*styling for album container*/
   grid-area: alb;
   background-color: black;
   border-radius: 0px 0px 5px 5px;
 }
 
-#albumheader {
+#albumheader { /*album header styling*/
   font-family: 'Oswald', 'sans-serif';
   font-weight: 300;
   letter-spacing: 2px;
@@ -319,14 +298,14 @@ body {
   margin-bottom: 1%;
 }
 
-#albumholder {
+#albumholder { /*flex wrapper for albums*/
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center
 }
 
-#albumtitles{
+#albumtitles{ /*album title styling*/
   font-family: 'Oswald', 'sans-serif';
   font-weight: 300;
   text-align: center;
@@ -336,22 +315,22 @@ body {
   align-items: center
 }
 
-.albumtitle{
+.albumtitle{ /*album title size*/
   width: 18%;
 }
 
-.albums {
+.albums { /*album size/positioning*/
   height: 18%;
   width: 18%;
   padding-left: 2%;
   padding-right: 2%;
 }
 
-#mobilebackground{
+#mobilebackground{ /*hides mobile background on desktop*/
   display: none;
 }
 
-#sources{
+#sources{ /*styling for sources window*/
   position: absolute;
   top: 10%;
   width: 20%;
@@ -361,11 +340,11 @@ body {
   background-color: white;
 }
 
-#sourcelist{
+#sourcelist{ /*styling for source list*/
   padding-left: 25px;
 }
 
-#closeBtn {
+#closeBtn { /*styling for close button*/
   border: 1px solid black;
   background-color: white;
   color: black;
@@ -378,13 +357,13 @@ body {
   transition: .25s;
 }
 
-#closeBtn:hover {
+#closeBtn:hover { /*on hover, change button color */
   background-color: black;
   color: white;
   transition: .25s;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1024px) { /*media query for tablets/phone screens*/
   #griddiv{
     display: grid;
     width: 100%;
@@ -401,10 +380,10 @@ body {
       "jid ear"
       "inf inf";
   }
-  .video-background {
+  .video-background { /*hide video background on mobile*/
     display: none
   }
-  #logodiv {
+  #logodiv { /*logodiv styling for mobile*/
     grid-area: log;
     border: 1px solid black;
     background-color: black;
@@ -413,11 +392,11 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #mainlogo {
+  #mainlogo { /*logo styling for mobile */
     height: auto;
     width: 25%;
   }
-  #sourceBtn{
+  #sourceBtn{ /*source button adjusted styling*/
     position: absolute;
     right: 5%;
     top: 2%;
@@ -432,17 +411,17 @@ body {
     border-radius: 2px;
     transition: .25s;
   }
-  .artistimage{
+  .artistimage{ /*artist image adjusted styling */
     width: 40%;
     height: auto;
     filter: grayscale(100%);
     transition: .75s;
   }
-  .artistheader {
+  .artistheader { /*artist header adjusted styling */
     margin: 0px;
     color: white;
   }
-  #myBtn {
+  #myBtn { /*modal button adjusted styling*/
     position:fixed;
     top: 94%;
     right: 40%;
@@ -458,7 +437,7 @@ body {
     font-size: 1.25em;
     border-radius: 2px;
   }
-  #artistcontent {
+  #artistcontent { /*artist content adjusted styling*/
     height: 95%;
     width: 100%;
     margin: 0px;
@@ -472,14 +451,14 @@ body {
     overflow: auto;
   }
 
-  #albumholder {
+  #albumholder { /*album holder adjusted styling*/
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center
   }
 
-  #albumtitles{
+  #albumtitles{ /*album title holder adjusted styling */
     font-family: 'Oswald', 'sans-serif';
     font-weight: 300;
     text-align: center;
@@ -489,21 +468,21 @@ body {
     align-items: center
   }
 
-  .albumtitle{
+  .albumtitle{ /*album title adjusted styling*/
     width: 25%;
   }
 
-  .albums {
+  .albums { /*albums adjusted styling*/
     height: 25%;
     width: 25%;
     padding-left: 4%;
     padding-right: 4%;
   }
-  #ytplayer {
+  #ytplayer { /*youtube player adjusted styling*/
     width: 300px;
     height: 168.75px;
   }
-  #infodiv {
+  #infodiv { /*info div adjusted styling*/
     grid-area: inf;
     border: 1px solid black;
     background-color: black;
@@ -517,8 +496,7 @@ body {
     padding-left: 5px;
     padding-right: 5px;
   }
-  #mobilebackground{
-
+  #mobilebackground{ /*displays mobile background*/
     background-image: url('../img/mobilebackground.png');
     background-size: 105%;
     display: block;
@@ -526,5 +504,14 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+  }
+  #sources{ /*adjusted styling for sources container*/
+    position: absolute;
+    top: 10%;
+    width: 40%;
+    height: auto;
+    display: none;
+    z-index: 2;
+    background-color: white;
   }
 }

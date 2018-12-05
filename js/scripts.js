@@ -9,104 +9,96 @@
   var apiParams6 = {action: 'query', prop: 'extracts', format: 'json', titles: 'Ari_Lennox', exintro: 1}; //pageid = 48760011
   var apiParams7 = {action: 'query', prop: 'extracts', format: 'json', titles: 'J.I.D', exintro: 1}; //pageid = 53256071
   var apiParams8 = {action: 'query', prop: 'extracts', format: 'json', titles: 'EarthGang', exintro: 1}; //pageid = 44017272
-  //made separate api parameter variables for each article
+  //made separate api parameter variables for each wiki article
   var myKey = config.MY_KEY; //For some reason, the key wouldn't work when applied like usual
 
-  $('.artistimage').click(function() {
-     //optionally remove the 500 (which is time in milliseconds) of the
-     //scrolling animation to remove the animation and make it instant
+  $('.artistimage').click(function() { //scrollTo plugin, when an artist image is clicked the screen scrolls down to the info window. This function doesn't manifest on desktop as the site is the size of the viewport, but it is helpful for mobile functionality
      $.scrollTo($('#infodiv'), 100);
   });
 
-  $.ajax({ //as of now, it looks like a may have to do a separate ajax call for each description
-    "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams0),
+  $.ajax({ //ajax call for the wiki info that occupies info div on website startup
+    "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams0), //wikipedia API with parameters from Dreamville Records
     "dataType": "jsonp",
     //data: apiParams,
     success: function(response){
-      console.log(response.query.pages[41775413].extract);
-      var dreamvilleInfo = response.query.pages[41775413].extract;
-      $('#defaultinfo').append(dreamvilleInfo);
+      console.log(response.query.pages[41775413].extract); //on success, log the 'extract' of the wiki page - in this case, it's the intro text
+      var dreamvilleInfo = response.query.pages[41775413].extract; //puts the extract in a variable
+      $('#defaultinfo').append(dreamvilleInfo); //puts extract in info div
     },
-    error: function(msg){
+    error: function(msg){ //else, error message
       console.log('error');
     }
   });
 
-  $('#sourceBtn').click(function(){
+  $('#sourceBtn').click(function(){ //when "?" button is clicked, sources appear in modal window
     $('#sources').css("display", "block");
   });
 
-  $('#closeBtn').click(function(){
+  $('#closeBtn').click(function(){ //when "close" button is clicked, sources window disappears
     $('#sources').css("display", "none");
   });
-
 
   // Load the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/player_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
   // Replace the 'ytplayer' element with an <iframe> and
   // YouTube player after the API code downloads.
   var player;
 
-
-  $('#ai1').click(function(){
-    $('#defaultinfo, #info2, #info3, #info4, #info5, #info6, #info7, #info8').css("display", "none");
-    $('#info1, #modalheader, #modalbodytext, #player, #modalvid, #modalbodytext, #albumholder, #albumtitles').empty();
-    $('#modalvid').append('<div id="ytplayer"></div>');
-    $('#info1').css("display", "block");
-    $('#modalbox').css({"background-color": "#a71419","border-color": "#a71419"});
-    $('#albumheader, #albumtitles').css("color", "#a71419");
-    $('#myBtn').css("z-index", "0");
-    $.ajax({
-      "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams1),
+  $('#ai1').click(function(){ //This function shows the general template for those that follow it - they all do nearly the exact same thing, just w different data.
+    $('#defaultinfo, #info2, #info3, #info4, #info5, #info6, #info7, #info8').css("display", "none"); //removes whatever text is in info div at start of function
+    $('#info1, #modalheader, #modalbodytext, #player, #modalvid, #modalbodytext, #albumholder, #albumtitles').empty(); //empties own info div data upon click the prevent the data appearing multiple times from multiple clicks. empties content of modal window to allow for new content to be added.
+    $('#modalvid').append('<div id="ytplayer"></div>'); //adds youtube player into modal
+    $('#info1').css("display", "block"); //shows intro text for respective artist in info div
+    $('#modalbox').css({"background-color": "#a71419","border-color": "#a71419"}); //sets modal box's color to a handpicked color from the video thumbnail, helps add some color and cohesion
+    $('#albumheader, #albumtitles').css("color", "#a71419"); //changes the headers in the black section of the modal to the same color as above
+    $('#myBtn').css("z-index", "0"); //brings modal button window out from behind rest of site
+    $.ajax({ //similar to the default AJAX call - except this is with the info for the respective artist selected
+      "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams1), //uses new parameters for respective artist
       "dataType": "jsonp",
       success: function(response){
         console.log(response.query.pages[23306612].extract);
-        var jColeInfo = response.query.pages[23306612].extract;
-        var jColeTitle = response.query.pages[23306612].title;
-        $('#info1').append(jColeInfo);
-        $('#modalheader').append(jColeTitle);
+        var jColeInfo = response.query.pages[23306612].extract; //gets article intro
+        var jColeTitle = response.query.pages[23306612].title; //gets article title
+        $('#info1').append(jColeInfo); //puts intro in info div
+        $('#modalheader').append(jColeTitle); //puts title in modal window
       },
-      error: function(msg){
+      error: function(msg){ //error msg
         console.log('error');
       }
     });
-    $.ajax({
+    $.ajax({ //2nd ajax request - for extended bio in modal using last.fm API
       type : 'POST',
       url : 'http://ws.audioscrobbler.com/2.0/',
-      data : 'method=artist.getinfo&' +
-             'artist=J.+Cole&' +
-             'api_key=9259102230c43036be16996729c620c2&' +
-             'format=json',
+      data : 'method=artist.getinfo&' + 'artist=J.+Cole&' + 'api_key=9259102230c43036be16996729c620c2&' + 'format=json', //wanted to use config and MY_KEY, but wouldn't work for some reason.
       dataType : 'jsonp',
-      success : function(data) {
-          console.log(data.artist);
-          $('#modalbodytext').append(data.artist.bio.content);
+      success : function(data) { //on success, add artist bio
+          console.log(data.artist); //log artist data
+          $('#modalbodytext').append(data.artist.bio.content); //buts bio in modal body text area
       },
-      error: function(msg){
+      error: function(msg){ //error msg
         console.log('error');
       }
     });
-    $('#albumholder').append('<img class="albums" src="img/KOD.jpg"/><img class="albums" src="img/4youreyezonly.jpg"/><img class="albums" src="img/2014ForestHillsDrive.jpg"/>');
-    $('#albumtitles').append('<span class="albumtitle">KOD</span><span class="albumtitle">4 Your Eyez Only</span><span class="albumtitle">2014 Forest Hills Drive</span>');
-    player = new YT.Player('ytplayer', {
+    $('#albumholder').append('<img class="albums" src="img/KOD.jpg"/><img class="albums" src="img/4youreyezonly.jpg"/><img class="albums" src="img/2014ForestHillsDrive.jpg"/>'); //adds recent albums into latest Releases section
+    $('#albumtitles').append('<span class="albumtitle">KOD</span><span class="albumtitle">4 Your Eyez Only</span><span class="albumtitle">2014 Forest Hills Drive</span>'); //adds album titles
+    player = new YT.Player('ytplayer', { //player for youtube video
       height: 'auto',
       width: 'auto',
       videoId: 'vUTI4bPdlgE'
     });
   });
   $('#ai2').click(function(){
-    $('#defaultinfo, #info1, #info3, #info4, #info5, #info6, #info7, #info8').css("display", "none");
-    $('#info2, #modalheader, #modalbodytext, #player, #modalvid, #modalbodytext, #albumholder, #albumtitles').empty();
-    $('#modalvid').append('<div id="ytplayer"></div>');
-    $('#info2').css("display", "block");
-    $('#modalbox').css({"background-color": "#214c86","border-color": "#214c86"});
-    $('#albumheader, #albumtitles').css("color", "#214c86");
-    $('#myBtn').css("z-index", "0");
-    $.ajax({
+    $('#defaultinfo, #info1, #info3, #info4, #info5, #info6, #info7, #info8').css("display", "none");  //same functionality as #ai1, but for this respective artist
+    $('#info2, #modalheader, #modalbodytext, #player, #modalvid, #modalbodytext, #albumholder, #albumtitles').empty();  //same functionality as #ai1, but for this respective artist
+    $('#modalvid').append('<div id="ytplayer"></div>');  //same functionality as #ai1, but for this respective artist
+    $('#info2').css("display", "block");  //same functionality as #ai1, but for this respective artist
+    $('#modalbox').css({"background-color": "#214c86","border-color": "#214c86"});  //same functionality as #ai1, but for this respective artist
+    $('#albumheader, #albumtitles').css("color", "#214c86");  //same functionality as #ai1, but for this respective artist
+    $('#myBtn').css("z-index", "0");  //same functionality as #ai1, but for this respective artist
+    $.ajax({  //same functionality as #ai1, but for this respective artist
       "url":"https://en.wikipedia.org/w/api.php?" + $.param(apiParams2),
       "dataType": "jsonp",
       success: function(response){
@@ -122,14 +114,14 @@
     });
     //omen happens to be a very popular metal band name, so i had to directly take the text from the list of bios since lastFMs api doesn't let you select individual paragraphs to include
     $('#modalbodytext').append("An American rapper from Chicago. Chicago-born emcee, Omen (born Damon Coleman) goes his own route, delivering incredible songs shaped by rhymes, melodies and composition inspired, by some of his favorite artist growing up such as Nas, Stevie Wonder, Michael Jackson and Common. However, his most significant influences come from his own real life situations and emotions as well as his vivid imagination. Honest in rhyme, fresh in appearance and forward in thinking, Omen embodies a Chicago-confidence and originality seen most recently in the likes of hometown heavyweights Common, Kanye West and Lupe Fiasco.However, Omen is his own man. And at six-foot-three, he's head and shoulders above a sea of rap aspirants who simply cannot do what he does. Not only did he pen, produce and perform all the tracks on upcoming album Beyond, Omen composed the notes, hashed out the chords and arranged the instrumentation for much of the album, as well. As comfortable and creative at the piano as he is in the recording booth, Omen's turned an everyday passion for music into a productive obsession. His efforts have resulted in a sound that, in his own words, “is nontraditional with old elements.”");
-    $('#albumholder').append('<img class="albums" src="img/elephanteyes.jpg"/>');
-    $('#albumtitles').append('<span class="albumtitle">Elephant Eyes</span>');
-    player = new YT.Player('ytplayer', {
+    $('#albumholder').append('<img class="albums" src="img/elephanteyes.jpg"/>'); //same functionality as #ai1, but for this respective artist
+    $('#albumtitles').append('<span class="albumtitle">Elephant Eyes</span>'); //same functionality as #ai1, but for this respective artist
+    player = new YT.Player('ytplayer', { //same functionality as #ai1, but for this respective artist
       height: 'auto',
       width: 'auto',
       videoId: 'f7nbrgAyVuk'
     });
-  });
+  }); //following functions from #ai3-#ai8 won't comment functionality if it's redundant to the comments regarding the same functions - only new functions/objects will be commented on to save space since most parts of these functions are identical.
   $('#ai3').click(function(){
     $('#defaultinfo, #info1, #info2, #info4, #info5, #info6, #info7, #info8').css("display", "none");
     $('#info3, #modalheader, #modalbodytext, #player, #modalvid, #modalbodytext, #albumholder, #albumtitles').empty();
