@@ -121,7 +121,8 @@
       width: 'auto',
       videoId: 'f7nbrgAyVuk'
     });
-  }); //following functions from #ai3-#ai8 won't comment functionality if it's redundant to the comments regarding the same functions - only new functions/objects will be commented on to save space since most parts of these functions are identical.
+  });
+  //following functions from #ai3-#ai8 won't comment functionality if it's redundant to the comments regarding the same functions - only new functions/objects will be commented on to save space since most parts of these functions are identical.
   $('#ai3').click(function(){
     $('#defaultinfo, #info1, #info2, #info4, #info5, #info6, #info7, #info8').css("display", "none");
     $('#info3, #modalheader, #modalbodytext, #player, #modalvid, #modalbodytext, #albumholder, #albumtitles').empty();
