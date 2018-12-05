@@ -183,7 +183,7 @@ body {
     background-color: white;
     margin: auto;
     padding: 0px;
-    border: 3px solid white;
+    border: 7px solid white;
     border-radius: 3px;
     width: 90%;
     height: 90%;
@@ -214,7 +214,7 @@ body {
   grid-template-rows: 65% 35%;
   grid-template-areas:
   "txt vid vid"
-  "txt blb blb";
+  "txt alb alb";
 }
 
 #modaltext {
@@ -267,6 +267,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid black;
 }
 
 #ytplayer {
@@ -274,10 +275,47 @@ body {
   height: 360px;
 }
 
-#modalbillboard {
-  grid-area: blb;
+#modalalbums {
+  grid-area: alb;
   background-color: black;
   border-radius: 0px 0px 5px 5px;
+}
+
+#albumheader {
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1%;
+}
+
+#albumholder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+#albumtitles{
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 300;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+.albumtitle{
+  width: 18%;
+}
+
+.albums {
+  height: 18%;
+  width: 18%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 @media screen and (max-width:1024px) {
