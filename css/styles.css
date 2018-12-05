@@ -528,6 +528,9 @@ body { /*ensures body content fits in viewport*/
     height: auto;
     display: none;
     z-index: 2;
-    background-color: white;
+    background-color: black;
+    border: 1px white solid;
+    border-radius: 3px;
+    color: white;
   }
 }
