@@ -354,7 +354,7 @@ body {
 #sources{
   position: absolute;
   top: 10%;
-  width: auto;
+  width: 20%;
   height: auto;
   display: none;
   z-index: 2;
