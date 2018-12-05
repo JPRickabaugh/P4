@@ -27,6 +27,14 @@
     }
   });
 
+  $('#sourceBtn').click(function(){
+    $('#sources').css("display", "block");
+  });
+
+  $('#closeBtn').click(function(){
+    $('#sources').css("display", "none");
+  });
+
 
   // Load the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
@@ -323,7 +331,8 @@
       videoId: 'zgNVvtOp8mU'
     });
   });
-  // Get the modal
+
+// Get the modal
 var modal = document.getElementById('myModal');
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -343,4 +352,5 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
 });

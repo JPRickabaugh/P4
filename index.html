@@ -8,10 +8,9 @@
     <title>Project 4</title>
   </head>
   <body>
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-box" id="modalbox">
+
+    <div id="myModal" class="modal"><!-- Main Modal for artist info-->
+      <div class="modal-box" id="modalbox"><!-- Modal content -->
         <span class="close">&times;</span>
         <div id="artistcontent">
           <div id="modaltext">
@@ -29,11 +28,18 @@
         </div>
       </div>
     </div>
-    <div class="video-background">
+
+    <div class="video-background"> <!-- youtube video background -->
       <div class="video-foreground">
         <iframe src="https://www.youtube.com/embed/ZiADuDjueJc?controls=0&showinfo=0&rel=0&autoplay=1&modestbranding=1&start=1&loop=1&playlist=ZiADuDjueJc&mute=1" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
+
+    <div id="mobilebackground"> <!--mobile background; video doesn't autoplay on mobile so i used an image -->
+    </div>
+
+    <button id="sourceBtn">?</button>
+
     <div id="griddiv">
       <div id="logodiv">
         <img id="mainlogo" src="img/dreamvillelogo.png" />
@@ -73,33 +79,27 @@
 
       <div id="infodiv">
         <button id="myBtn">MORE</button> <!-- Trigger/Open The Modal -->
-        <p class="infotext" id="defaultinfo">
-
-        </p>
-        <p class="infotext" id="info1">
-
-        </p>
-        <p class="infotext" id="info2">
-
-        </p>
-        <p class="infotext" id="info3">
-
-        </p>
-        <p class="infotext" id="info4">
-
-        </p>
-        <p class="infotext" id="info5">
-
-        </p>
-        <p class="infotext" id="info6">
-
-        </p>
-        <p class="infotext" id="info7">
-
-        </p>
-        <p class="infotext" id="info8">
-
-        </p>
+        <p class="infotext" id="defaultinfo"></p>
+        <p class="infotext" id="info1"></p>
+        <p class="infotext" id="info2"></p>
+        <p class="infotext" id="info3"></p>
+        <p class="infotext" id="info4"></p>
+        <p class="infotext" id="info5"></p>
+        <p class="infotext" id="info6"></p>
+        <p class="infotext" id="info7"></p>
+        <p class="infotext" id="info8"></p>
+        <div id="sources">
+          <ul id="sourcelist">
+            <li>Last.fm API</li>
+            <li>Wikipedia API</li>
+            <li>Youtube/Iframe API</li>
+            <li>Wikipedia (Album Art)</li>
+            <li>Dreamville (logo)</li>
+            <li>Favicon.cc (favicon)</li>
+            <li>Allmusic (certain artist bios)</li>
+          </ul>
+          <button id="closeBtn">close</button>
+        </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

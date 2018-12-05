@@ -52,14 +52,37 @@ body {
   border: 1px solid black;
   background-color: black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 #mainlogo {
+  margin-left: 0%;
   width: 10%;
   height: auto;
+}
+
+#sourceBtn{
+  position: absolute;
+  right: 5%;
+  top: 3%;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 400;
+  width: 3vw;
+  padding-bottom: 3px;
+  font-size: 1.25em;
+  border-radius: 2px;
+  transition: .25s;
+}
+
+#sourceBtn:hover {
+  background-color: white;
+  color: black;
+  transition: .25s;
 }
 
 .artistdiv {
@@ -148,11 +171,13 @@ body {
   padding-bottom: 3px;
   font-size: 1.25em;
   border-radius: 2px;
+  transition: .25s;
 }
 
 #myBtn:hover {
   background-color: white;
   color: black;
+  transition: .25s;
 }
 
 #defaultinfo{
@@ -318,6 +343,43 @@ body {
   padding-right: 2%;
 }
 
+#mobilebackground{
+  display: none;
+}
+
+#sources{
+  position: absolute;
+  top: 10%;
+  width: auto;
+  height: auto;
+  display: none;
+  z-index: 2;
+  background-color: white;
+}
+
+#sourcelist{
+  padding-left: 25px;
+}
+
+#closeBtn {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  font-family: 'Oswald', 'sans-serif';
+  font-weight: 300;
+  width: 30%;
+  margin-left: 35%;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  transition: .25s;
+}
+
+#closeBtn:hover {
+  background-color: black;
+  color: white;
+  transition: .25s;
+}
+
 @media screen and (max-width:1024px) {
   #griddiv{
     display: grid;
@@ -343,13 +405,28 @@ body {
     border: 1px solid black;
     background-color: black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
   }
   #mainlogo {
     height: auto;
     width: 25%;
+  }
+  #sourceBtn{
+    position: absolute;
+    right: 5%;
+    top: 2%;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    font-family: 'Oswald', 'sans-serif';
+    font-weight: 400;
+    width: 10%;
+    padding-bottom: 3px;
+    font-size: 1.25em;
+    border-radius: 2px;
+    transition: .25s;
   }
   .artistimage{
     width: 40%;
@@ -359,7 +436,7 @@ body {
   }
   .artistheader {
     margin: 0px;
-    color: black;
+    color: white;
   }
   #myBtn {
     position:absolute;
@@ -377,8 +454,73 @@ body {
     font-size: 1.25em;
     border-radius: 2px;
   }
+  #artistcontent {
+    height: 95%;
+    width: 100%;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 35%;
+    grid-template-areas:
+    "vid"
+    "alb"
+    "txt";
+    overflow: auto;
+  }
+
+  #albumholder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+  }
+
+  #albumtitles{
+    font-family: 'Oswald', 'sans-serif';
+    font-weight: 300;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+  }
+
+  .albumtitle{
+    width: 25%;
+  }
+
+  .albums {
+    height: 25%;
+    width: 25%;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
   #ytplayer {
-    width: 320px;
-    height: 180px;
+    width: 300px;
+    height: 168.75px;
+  }
+  #infodiv {
+    grid-area: inf;
+    border: 1px solid black;
+    background-color: black;
+    font-family: 'Oswald', 'sans-serif';
+    font-weight: 300;
+    height:90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #mobilebackground{
+
+    background-image: url('../img/mobilebackground.png');
+    background-size: 105%;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 }
